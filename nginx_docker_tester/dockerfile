@@ -1,0 +1,28 @@
+# OS
+From ubuntu:latest
+
+# update packages
+RUN apt-get update && apt-get upgrade -y
+
+# install Nginx
+RUN apt-get install -y nginx openssl
+
+# install PhP
+RUN		apt-get -y install php7.3 php-mysql php-fpm php-cli php-mbstring
+
+# copy nginx config file to the right place
+COPY srcs/nginx.conf /etc/nginx/sites-available/localhost
+COPY srcs/index.html /var/www/html
+COPY srcs/style.css /var/www/html
+RUN	 mkdir /var/www/html/test
+COPY srcs/test_index.html /var/www/html/test
+RUN mkdir /var/www/html/test/subdirectory
+
+# symlin this to sites-enabled to enable it
+RUN ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled
+
+# define the port number the container should expose
+EXPOSE 80
+
+# run the command
+CMD service nginx start && bash

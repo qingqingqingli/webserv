@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.google.com/specimen/Ranchers?preview.text_type=custom" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<meta charset="utf-8">
+	<title>Index</title>
+
+</head>
+
+<body>
+<div class="middle">
+	<img src="codamlogo.png">
+	<h1>Index page </h1>
+	<p>Welcome to the webserv project</p>
+
+	<form action="adduser.php" method="GET">
+		<h4>Get request with arguments</h4>
+		<label for="firstname">First name:</label><br>
+		<input type="text" id="firstname" name="firstname"><br>
+		<label for="lastname">Last name:</label><br>
+		<input type="text" id="lastname" name="lastname">
+		<input type="submit" value="Send get request">
+	</form>
+
+	<form action="adduser.php" method="POST">
+		<h4>Post request with arguments</h4>
+	  	<label for="firstname">First name:</label><br>
+	  	<input type="text" id="firstname" name="firstname"><br>
+	  	<label for="lastname">Last name:</label><br>
+	  	<input type="text" id="lastname" name="lastname">
+	  	<input type="submit" value="Send post request">
+	</form>
+
+</div>
+</body>
+</html>
